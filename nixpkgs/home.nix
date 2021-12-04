@@ -17,6 +17,7 @@
     ".bashrc".source = ./bashrc;
     ".tmux.conf".source = ./tmux.conf;
     ".gitconfig".source = ./gitconfig;
+    ".Xresources".source = ./Xresources;
   };
 
   xdg.configFile = {
@@ -36,7 +37,22 @@
     pkgs.gopls
     pkgs.tree
     pkgs.watch
+    pkgs.bitwarden
+    pkgs.bitwarden-cli
   ];
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-python.python
+      ms-vscode.cpptools
+      golang.go
+      bbenoist.nix
+      zhuangtongfa.material-theme
+      eamodio.gitlens
+      editorconfig.editorconfig
+    ];
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
