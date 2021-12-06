@@ -37,10 +37,15 @@
     pkgs.jq
     pkgs.go
     pkgs.gopls
+    pkgs.rustup
     pkgs.tree
     pkgs.watch
     pkgs.bitwarden
     pkgs.bitwarden-cli
+
+    pkgs.neofetch
+    pkgs.flameshot
+    pkgs.remmina
   ];
 
   programs.vscode = {

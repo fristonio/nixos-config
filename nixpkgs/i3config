@@ -6,11 +6,9 @@
 #
 
 # Print screen
-set $screenshot_file '~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S-$wx$h.png'
-bindsym Print exec escrotum $screenshot_file
-bindsym Shift+Print exec escrotum --select $screenshot_file
-bindsym Ctrl+Print exec escrotum  --clipboard $screenshot_file
-bindsym Ctrl+Shift+Print exec escrotum --clipboard --select --selection-delay 300 $screenshot_file
+set $screenshot_file '~/Pictures/Screenshots/'
+bindsym Print exec flameshot full -p $screenshot_file
+bindsym Ctrl+Shift+Print exec flameshot launcher
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh --forest
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
