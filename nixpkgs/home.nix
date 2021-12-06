@@ -25,6 +25,8 @@
     "i3/config".text = builtins.readFile ./i3config;
     "i3/locker.sh".text = builtins.readFile ./i3locker.sh;
     "ls_color/ls.color".text = builtins.readFile ./ls.color;
+    "polybar/launch.sh".text = builtins.readFile ./polybar_launch.sh;
+    "polybar/forest/config.ini".text = builtins.readFile ./polybar_config.ini;
   };
 
   home.packages = [

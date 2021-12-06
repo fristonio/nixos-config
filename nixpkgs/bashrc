@@ -87,6 +87,8 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GO111MODULE=on
 
+export DOCKER_HOST=unix:///run/docker.sock
+
 # Environment variable to allow scrolling using touchscreen in firefox
 export MOZ_USE_XINPUT2=1
 
