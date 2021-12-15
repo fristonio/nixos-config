@@ -30,6 +30,7 @@
   };
 
   home.packages = [
+    pkgs.neovim
     pkgs.bat
     pkgs.fzf
     pkgs.git-crypt
@@ -46,6 +47,13 @@
     pkgs.neofetch
     pkgs.flameshot
     pkgs.remmina
+    pkgs.slack
+    pkgs.arandr
+    pkgs.ruby
+    pkgs.silver-searcher
+    pkgs.ripgrep
+    pkgs.exa
+    pkgs.glow
   ];
 
   programs.vscode = {

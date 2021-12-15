@@ -7,6 +7,7 @@
 
 export LANG=en_US.UTF-8
 export EDITOR='vim'
+export EXEC_TMUX=1
 
 if ! [[ "${EXEC_TMUX}" -eq "" ]]; then
     if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
@@ -45,9 +46,8 @@ PS1+="\n${BLUE_COLOR}ᗆ ${NO_COLOR}"
 [ -f ~/.config/ls_color/ls.color ] && eval `dircolors ~/.config/ls_color/ls.color`
 
 alias cl="clear"
-alias off="sudo poweroff"
-alias restart="sudo reboot"
-alias install="sudo pacman -S"
+alias off="poweroff"
+alias restart="reboot"
 alias got="xdg-open"
 
 alias gl="git log --oneline --graph --abbrev-commit --decorate"
@@ -75,10 +75,17 @@ alias laptopscreen='xrandr --output eDP-1 --auto && xrandr --output DP-1 --off'
 alias monitorscreen='xrandr --output eDP-1 --off && xrandr --output DP-1 --auto'
 alias screensetup='xrandr --output eDP-1 --auto && xrandr --output DP-1 --auto'
 
+alias nix-gc-all='sudo nix-collect-garbage -d'
+alias nix-gc='sudo nix-store --gc'
+
 # Setup SCM Breeze for git configuration - https://github.com/scmbreeze/scm_breeze
 [ -s "/home/fristonio/.scm_breeze/scm_breeze.sh" ] && source "/home/fristonio/.scm_breeze/scm_breeze.sh"
 # Setup fzf for easy reverse search in bash.
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash -- only when manually installed
+if command -v fzf-share >/dev/null; then
+  source "$(fzf-share)/key-bindings.bash"
+  source "$(fzf-share)/completion.bash"
+fi
 
 export HISTFILESIZE=
 export HISTSIZE=
@@ -91,10 +98,6 @@ export DOCKER_HOST=unix:///run/docker.sock
 
 # Environment variable to allow scrolling using touchscreen in firefox
 export MOZ_USE_XINPUT2=1
-
-# Configurew autojump for bash
-[[ -s /home/fristonio/.autojump/etc/profile.d/autojump.sh ]] && source /home/fristonio/.autojump/etc/profile.d/autojump.sh ]]
-export PATH=$PATH:/usr/local/kubebuilder/bin
 
 if command -v kubectl &> /dev/null; then
     source <(kubectl completion bash)

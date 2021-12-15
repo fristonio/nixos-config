@@ -10,7 +10,7 @@ set $screenshot_file '~/Pictures/Screenshots/'
 bindsym Print exec flameshot full -p $screenshot_file
 bindsym Ctrl+Shift+Print exec flameshot launcher
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh --forest
+exec_always --no-startup-id bash ~/.config/polybar/launch.sh --forest
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
 exec_always synclient TapButton1=1
 exec_always setxkbmap -layout us -variant altgr-intl
@@ -50,7 +50,7 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # Force lock
-bindsym $mod+Ctrl+l exec --no-startup-id $HOME/.config/i3/locker.sh
+bindsym $mod+Ctrl+l exec --no-startup-id bash $HOME/.config/i3/locker.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill

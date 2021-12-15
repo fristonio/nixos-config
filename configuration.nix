@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
     ];
 
-  time.hardwareClockInLocalTime = true;
   environment.pathsToLink = [ "/libexec" ];
 
   # Use the systemd-boot EFI boot loader.
@@ -15,6 +14,8 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.device = "/dev/nvme0n1";
   boot.loader.grub.configurationLimit = 3;
+
+  time.hardwareClockInLocalTime = true;
 
   nixpkgs.config.allowUnfree = true;
 
@@ -42,6 +43,7 @@
     displayManager.lightdm = {
       enable = true;
     };
+    videoDrivers = [ "displaylink" "modesetting" ];
   };
 
   nixpkgs.config = {
@@ -82,7 +84,10 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fristonio = {
      isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [
+       "wheel"
+       "docker"
+     ]; # Enable ‘sudo’ for the user.
   };
 
   users.users.guest = {
@@ -93,7 +98,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     google-chrome
-    vim
+    vim_configurable
     curl
     polybar
     libnotify
@@ -105,6 +110,7 @@
     git
     rofi
     networkmanager_dmenu
+    libdrm
 
     xlibs.xbacklight
     xlibs.xmodmap
@@ -117,12 +123,15 @@
     xlibs.xrdb
     xlibs.xprop
 
-    rustup
     unzip
     gnome.nautilus
     pinentry
     pinentry-qt
     feh
+    imagemagick
+    xautolock
+    i3lock-color
+    home-manager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -132,6 +141,15 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  virtualisation = {
+    docker.enable = true;
+
+    virtualbox.host.enable = true;
+    virtualbox.host.enableExtensionPack = true;
+  };
+
+  users.extraGroups.vboxusers.members = [ "fristonio" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -65,6 +65,10 @@ Plug 'hashivim/vim-terraform'
 
 Plug 'nix-community/rnix-lsp'
 
+if has('python')
+    Plug 'puremourning/vimspector'
+endif
+
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
