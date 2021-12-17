@@ -18,6 +18,7 @@
     ".tmux.conf".source = ./tmux.conf;
     ".gitconfig".source = ./gitconfig;
     ".Xresources".source = ./Xresources;
+    ".tmux-workspace.sh".source = ./tmux-workspace.sh;
   };
 
   xdg.configFile = {
@@ -36,8 +37,6 @@
     pkgs.git-crypt
     pkgs.htop
     pkgs.jq
-    pkgs.go
-    pkgs.gopls
     pkgs.rustup
     pkgs.tree
     pkgs.watch
@@ -54,6 +53,10 @@
     pkgs.ripgrep
     pkgs.exa
     pkgs.glow
+    pkgs.nodejs
+    pkgs.cmake
+    pkgs.gnumake
+    pkgs.binutils
   ];
 
   programs.vscode = {

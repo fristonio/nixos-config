@@ -32,15 +32,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/grep.vim'
-Plug 'vim-scripts/CSApprox'
+" Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'preservim/tagbar'
-Plug 'dense-analysis/ale'
+
 Plug 'tpope/vim-rhubarb'
 
 " VIM theme packs
-" Plug 'rakr/vim-one'
 Plug 'joshdick/onedark.vim'
+" Plug 'rakr/vim-one'
 " Plug 'morhetz/gruvbox'
 " Plug 'chriskempson/base16-vim'
 
@@ -96,7 +96,7 @@ Plug 'ludwig/split-manpage.vim'
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 " Rust language packages.
-Plug 'racer-rust/vim-racer'
+" rustup component add rust-src -> To add rust source
 Plug 'rust-lang/rust.vim'
 
 " Plugin for icons in Vim, disable this if there is no UTF8 support
@@ -115,6 +115,10 @@ Plug 'plasticboy/vim-markdown'
 Plug 'maxbrunsfeld/vim-yankstack'
 
 Plug 'sheerun/vim-polyglot'
+
+" LSP support
+Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -334,7 +338,7 @@ nmap <leader>y :History:<CR>
 
 " ale
 let g:ale_fix_on_save = 1
-let g:ale_linters = {}
+let g:ale_linters = {'rust': ['analyzer']}
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}

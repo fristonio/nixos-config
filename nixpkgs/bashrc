@@ -7,12 +7,16 @@
 
 export LANG=en_US.UTF-8
 export EDITOR='vim'
-export EXEC_TMUX=1
+export EXEC_TMUX=0
 
 if ! [[ "${EXEC_TMUX}" -eq "" ]]; then
     if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
         exec tmux
     fi
+fi
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+    bash $HOME/.tmux-workspace.sh
 fi
 
 # Do not set TERM in bash configuration
@@ -59,8 +63,6 @@ alias k='kubectl'
 alias notes='vim ~/Documents/notes'
 alias shownotes='(cd ~/Documents/notes && glow)'
 
-export PATH="$PATH:$HOME/bin:$HOME/.local/bin:/usr/local/go/bin/:$GOPATH/bin:$GOROOT/bin:$HOME/.gem/ruby/3.7.0/bin"
-
 if command -v exa &> /dev/null; then
 	alias l='exa -l'
 	alias ls='exa'
@@ -90,9 +92,11 @@ fi
 export HISTFILESIZE=
 export HISTSIZE=
 
-export GOROOT=/usr/local/go
+export GOROOT=$HOME/go/src/goroot
 export GOPATH=$HOME/go
 export GO111MODULE=on
+
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$GOROOT/bin/:$GOPATH/bin"
 
 export DOCKER_HOST=unix:///run/docker.sock
 
