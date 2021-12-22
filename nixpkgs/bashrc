@@ -80,6 +80,8 @@ alias screensetup='xrandr --output eDP-1 --auto && xrandr --output DP-1 --auto'
 alias nix-gc-all='sudo nix-collect-garbage -d'
 alias nix-gc='sudo nix-store --gc'
 
+alias open-workspace='bash ~/.tmux-workspace.sh'
+
 # Setup SCM Breeze for git configuration - https://github.com/scmbreeze/scm_breeze
 [ -s "/home/fristonio/.scm_breeze/scm_breeze.sh" ] && source "/home/fristonio/.scm_breeze/scm_breeze.sh"
 # Setup fzf for easy reverse search in bash.

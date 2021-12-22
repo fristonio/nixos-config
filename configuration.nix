@@ -25,6 +25,8 @@
   networking.useDHCP = false;
   networking.interfaces.wlo1.useDHCP = true;
 
+  services.nfs.server.enable = true;
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -45,6 +47,8 @@
     };
     videoDrivers = [ "displaylink" "modesetting" ];
   };
+
+  services.tailscale.enable = true;
 
   nixpkgs.config = {
     packageOverrides = pkgs: rec {
@@ -97,6 +101,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    gcc
+    stdenv
+    llvm_13
+    clang_13
+    lld_13
+    openssl_3_0
+    bpftools
     google-chrome
     vim_configurable
     curl
@@ -141,6 +152,8 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  services.openssh.enable = true;
 
   virtualisation = {
     docker.enable = true;

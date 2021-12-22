@@ -11,12 +11,12 @@ if ! tmux has-session -t=workspace; then
     tmux new -s workspace -d -c $DEFAULT_WORKSPACE -n workspace
 
     # Split window vertically and horizontally
-    tmux split-window -h -t workspace:1.1
-    tmux split-window -v -t workspace:1.2
+    tmux split-window -h -t workspace:1.0
+    tmux split-window -v -t workspace:1.1
 
-    tmux new-window -c $GO_WORKSPACE -n go_workspace
-    tmux split-window -h -t workspace:2.1
-    tmux split-window -v -t workspace:2.2
+    tmux new-window -c $GO_WORKSPACE -n go_workspace -t workspace:1
+    tmux split-window -h -t workspace:2.0
+    tmux split-window -v -t workspace:2.1
 fi
 
 tmux a -t=workspace

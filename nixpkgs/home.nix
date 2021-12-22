@@ -57,6 +57,10 @@
     pkgs.cmake
     pkgs.gnumake
     pkgs.binutils
+    pkgs.ctags
+    pkgs.file
+    pkgs.vagrant
+    pkgs.nfs-utils
   ];
 
   programs.vscode = {
