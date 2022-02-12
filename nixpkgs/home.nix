@@ -1,6 +1,13 @@
 { config, lib, pkgs, ... }:
 
-{
+let unstable = import <nixos-unstable> {};
+zoom = pkgs.zoom-us.overrideAttrs (old: {
+  postFixup = old.postFixup + ''
+    wrapProgram $out/bin/zoom-us --unset XDG_SESSION_TYPE
+  '';
+});
+
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   programs.gpg.enable = true;
@@ -61,6 +68,11 @@
     pkgs.file
     pkgs.vagrant
     pkgs.nfs-utils
+    pkgs.bridge-utils
+    pkgs.go_1_17
+    zoom
+    pkgs.rofi
+    pkgs.obsidian
   ];
 
   programs.vscode = {

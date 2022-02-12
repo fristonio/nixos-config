@@ -77,7 +77,7 @@
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
-  # environment.gnome.excludePackages = [ pkgs.gnome-photos pkgs.gnome.gnome-music pkgs.gnome.gnome-terminal pkgs.gnome.gedit pkgs.epiphany pkgs.evince pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour ];   
+  # environment.gnome.excludePackages = [ pkgs.gnome-photos pkgs.gnome.gnome-music pkgs.gnome.gnome-terminal pkgs.gnome.gedit pkgs.epiphany pkgs.evince pkgs.gnome.gnome-characters pkgs.gnome.totem pkgs.gnome.tali pkgs.gnome.iagno pkgs.gnome.hitori pkgs.gnome.atomix pkgs.gnome-tour ];
 
   # Enable sound.
   sound.enable = true;
@@ -96,7 +96,7 @@
 
   users.users.guest = {
     isNormalUser = true;
-  }; 
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -119,7 +119,6 @@
     tmux
     firefox
     git
-    rofi
     networkmanager_dmenu
     libdrm
 
@@ -173,4 +172,3 @@
   system.stateVersion = "21.11"; # Did you read the comment?
 
 }
-
