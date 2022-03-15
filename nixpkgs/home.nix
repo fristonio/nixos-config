@@ -26,6 +26,7 @@ in {
     ".gitconfig".source = ./gitconfig;
     ".Xresources".source = ./Xresources;
     ".tmux-workspace.sh".source = ./tmux-workspace.sh;
+    ".ssh/config".source = ./sshconfig;
   };
 
   xdg.configFile = {
@@ -44,6 +45,7 @@ in {
     pkgs.git-crypt
     pkgs.htop
     pkgs.jq
+    pkgs.yq
     pkgs.rustup
     pkgs.tree
     pkgs.watch
@@ -73,6 +75,11 @@ in {
     zoom
     pkgs.rofi
     pkgs.obsidian
+    pkgs.bind
+    pkgs.pavucontrol
+    pkgs.vlc
+
+    pkgs.lens
   ];
 
   programs.vscode = {

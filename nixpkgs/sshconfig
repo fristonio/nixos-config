@@ -1,0 +1,6 @@
+# GitLab ssh configuration for Notes repository.
+
+Host gitlab.com
+    User git
+    Hostname gitlab.com
+    IdentityFile ~/.ssh/gitlab_notes

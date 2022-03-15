@@ -60,8 +60,12 @@ alias gcb="git checkout -b"
 alias ls='ls --group-directories-first --color=auto'
 alias l='ls -la --color=auto --group-directories-first'
 alias k='kubectl'
-alias notes='vim ~/Documents/notes'
+
+alias vinotes='vim ~/Documents/notes'
 alias shownotes='(cd ~/Documents/notes && glow)'
+alias syncnotes='(cd ~/Documents/notes && git pull origin main)'
+alias pushnotes='(cd ~/Documents/notes && git add . && git commit -s -m "Update Notes" && git push origin main)'
+
 
 if command -v exa &> /dev/null; then
 	alias l='exa -l'
@@ -81,6 +85,8 @@ alias nix-gc-all='sudo nix-collect-garbage -d'
 alias nix-gc='sudo nix-store --gc'
 
 alias open-workspace='bash ~/.tmux-workspace.sh'
+alias edit-home='vim $HOME/workspace/nixos-config/nixpkgs/home.nix'
+alias edit-nixpkgs='vim $HOME/workspace/nixos-config/nixpkgs/'
 
 # Setup SCM Breeze for git configuration - https://github.com/scmbreeze/scm_breeze
 [ -s "/home/fristonio/.scm_breeze/scm_breeze.sh" ] && source "/home/fristonio/.scm_breeze/scm_breeze.sh"
@@ -98,7 +104,9 @@ export GOROOT=$HOME/go/src/goroot
 export GOPATH=$HOME/go
 export GO111MODULE=on
 
-export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$GOROOT/bin/:$GOPATH/bin"
+export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$GOROOT/bin/:$GOPATH/bin:$HOME/.npm-packages/bin"
+export PATH="$PATH:$HOME/dev/pkgs/zig"
+export NODE_PATH=$HOME/.npm-packages/lib/node_modules
 
 export DOCKER_HOST=unix:///run/docker.sock
 
