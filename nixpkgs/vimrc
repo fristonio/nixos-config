@@ -68,6 +68,8 @@ Plug 'hashivim/vim-terraform'
 
 Plug 'nix-community/rnix-lsp'
 
+Plug 'earthly/earthly.vim', { 'branch': 'main' }
+
 if has('python')
     Plug 'puremourning/vimspector'
 endif

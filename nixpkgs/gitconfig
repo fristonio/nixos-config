@@ -13,4 +13,4 @@
 [pull]
 	ff = only
 [init]
-	defaultBranchName = main
+	defaultBranch = main

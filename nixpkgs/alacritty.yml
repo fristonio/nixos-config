@@ -142,7 +142,6 @@ schemes:
 
 
 colors: *base16_atelier_dune
-background_opacity: 1
 draw_bold_text_with_bright_colors: false
 use_thin_strokes: true
 

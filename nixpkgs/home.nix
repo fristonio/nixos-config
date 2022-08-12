@@ -26,7 +26,7 @@ in {
     ".gitconfig".source = ./gitconfig;
     ".Xresources".source = ./Xresources;
     ".tmux-workspace.sh".source = ./tmux-workspace.sh;
-    ".ssh/config".source = ./sshconfig;
+    # ".ssh/config".source = ./sshconfig;
   };
 
   xdg.configFile = {
@@ -52,6 +52,9 @@ in {
     pkgs.bitwarden
     pkgs.bitwarden-cli
 
+    pkgs.zlib
+    pkgs.libelf
+
     pkgs.neofetch
     pkgs.flameshot
     pkgs.remmina
@@ -62,7 +65,7 @@ in {
     pkgs.ripgrep
     pkgs.exa
     pkgs.glow
-    pkgs.nodejs
+    pkgs.nodejs-16_x
     pkgs.cmake
     pkgs.gnumake
     pkgs.binutils
@@ -71,17 +74,39 @@ in {
     pkgs.vagrant
     pkgs.nfs-utils
     pkgs.bridge-utils
-    pkgs.go_1_17
+    pkgs.go_1_18
+    pkgs.gopls
     zoom
     pkgs.rofi
     pkgs.obsidian
     pkgs.bind
     pkgs.pavucontrol
     pkgs.vlc
+    pkgs.brave
 
     pkgs.lens
+    pkgs.rust-analyzer
+    pkgs.light
+    pkgs.zoxide
+
+    pkgs.discord
+    pkgs.pkg-config
+    pkgs.openssl.dev
+    pkgs.zlib
+    pkgs.libelf
+    pkgs.shellcheck
+
+    pkgs.python311
+    pkgs.inetutils
+    pkgs.nmap
+
+    pkgs.xclip
+    pkgs.xsel
+    pkgs.azure-cli
   ];
 
+  # To make remote ssh extension work -
+  # https://github.com/microsoft/vscode-remote-release/issues/648#issuecomment-503148523
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
@@ -92,6 +117,7 @@ in {
       zhuangtongfa.material-theme
       eamodio.gitlens
       editorconfig.editorconfig
+      ms-vscode-remote.remote-ssh
     ];
   };
 
