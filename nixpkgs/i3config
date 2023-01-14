@@ -11,7 +11,7 @@ bindsym Print exec flameshot full -p $screenshot_file
 bindsym Ctrl+Shift+Print exec flameshot launcher
 
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh --forest
-exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
+exec_always --no-startup-id bash ~/.config/set-wallpaper.sh
 exec_always synclient TapButton1=1
 exec_always setxkbmap -layout us -variant altgr-intl
 

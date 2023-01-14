@@ -36,6 +36,7 @@ in {
     "ls_color/ls.color".text = builtins.readFile ./ls.color;
     "polybar/launch.sh".text = builtins.readFile ./polybar_launch.sh;
     "polybar/forest/config.ini".text = builtins.readFile ./polybar_config.ini;
+    "set-wallpaper.sh".text = builtins.readFile ./set-wallpaper.sh;
   };
 
   home.packages = [
@@ -103,6 +104,7 @@ in {
     pkgs.xclip
     pkgs.xsel
     pkgs.azure-cli
+    pkgs.rpi-imager
   ];
 
   # To make remote ssh extension work -
