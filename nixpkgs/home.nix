@@ -22,21 +22,28 @@ in {
   home.file = {
     ".vimrc".source = ./vimrc;
     ".bashrc".source = ./bashrc;
-    ".tmux.conf".source = ./tmux.conf;
+    ".tmux.conf".source = ./tmux/tmux.conf;
     ".gitconfig".source = ./gitconfig;
     ".Xresources".source = ./Xresources;
-    ".tmux-workspace.sh".source = ./tmux-workspace.sh;
+    ".tmux-workspace.sh".source = ./tmux/tmux-workspace.sh;
     # ".ssh/config".source = ./sshconfig;
   };
 
   xdg.configFile = {
     "alacritty/alacritty.yml".text = builtins.readFile ./alacritty.yml;
-    "i3/config".text = builtins.readFile ./i3config;
-    "i3/locker.sh".text = builtins.readFile ./i3locker.sh;
+    "i3/config".text = builtins.readFile ./i3/i3config;
+    "i3/locker.sh".text = builtins.readFile ./i3/i3locker.sh;
     "ls_color/ls.color".text = builtins.readFile ./ls.color;
-    "polybar/launch.sh".text = builtins.readFile ./polybar_launch.sh;
-    "polybar/forest/config.ini".text = builtins.readFile ./polybar_config.ini;
-    "set-wallpaper.sh".text = builtins.readFile ./set-wallpaper.sh;
+    "polybar/launch.sh".text = builtins.readFile ./polybar/polybar_launch.sh;
+    "polybar/forest/config.ini".text = builtins.readFile ./polybar/polybar_config.ini;
+    "set-wallpaper.sh".text = builtins.readFile ./polybar/set-wallpaper.sh;
+
+    # NUSHELL configuration
+    "nushell/config.nu".text = builtins.readFile ./nushell/config.nu;
+    "nushell/env.nu".text = builtins.readFile ./nushell/env.nu;
+    "nushell/onedark.nu".text = builtins.readFile ./nushell/onedark.nu;
+    "nushell/atuin.nu".text = builtins.readFile ./nushell/atuin.nu;
+    "nushell/zoxide.nu".text = builtins.readFile ./nushell/zoxide.nu;
   };
 
   home.packages = [
