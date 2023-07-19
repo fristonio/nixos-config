@@ -4,3 +4,6 @@ Host gitlab.com
     User git
     Hostname gitlab.com
     IdentityFile ~/.ssh/gitlab_notes
+
+Host dev.fristonio.xyz
+    ForwardAgent yes

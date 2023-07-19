@@ -9,16 +9,6 @@ export LANG=en_US.UTF-8
 export EDITOR='vim'
 export EXEC_TMUX=0
 
-if ! [[ "${EXEC_TMUX}" -eq "" ]]; then
-    if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]]; then
-        exec tmux
-    fi
-fi
-
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ tmux ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-    bash $HOME/.tmux-workspace.sh
-fi
-
 # Do not set TERM in bash configuration
 # export TERM=xterm-256color
 
@@ -65,7 +55,6 @@ alias vinotes='vim ~/Documents/notes'
 alias shownotes='(cd ~/Documents/notes && glow)'
 alias syncnotes='(cd ~/Documents/notes && git pull origin main)'
 alias pushnotes='(cd ~/Documents/notes && git add . && git commit -s -m "Update Notes" && git push origin main)'
-
 
 if command -v exa &> /dev/null; then
 	alias l='exa -l'

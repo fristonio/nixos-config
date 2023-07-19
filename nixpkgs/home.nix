@@ -40,8 +40,8 @@ in {
   };
 
   home.packages = [
-    pkgs.neovim
     pkgs.bat
+    pkgs.exa
     pkgs.fzf
     pkgs.git-crypt
     pkgs.htop
@@ -52,13 +52,10 @@ in {
     pkgs.watch
     pkgs.bitwarden
     pkgs.bitwarden-cli
-
-    pkgs.zlib
-    pkgs.libelf
+    pkgs.neovim
 
     pkgs.neofetch
     pkgs.flameshot
-    pkgs.remmina
     pkgs.slack
     pkgs.arandr
     pkgs.ruby
@@ -66,7 +63,6 @@ in {
     pkgs.ripgrep
     pkgs.exa
     pkgs.glow
-    pkgs.nodejs-16_x
     pkgs.cmake
     pkgs.gnumake
     pkgs.binutils
@@ -83,10 +79,7 @@ in {
     pkgs.bind
     pkgs.pavucontrol
     pkgs.vlc
-    pkgs.brave
 
-    pkgs.lens
-    pkgs.rust-analyzer
     pkgs.light
     pkgs.zoxide
 
@@ -100,11 +93,19 @@ in {
     pkgs.python311
     pkgs.inetutils
     pkgs.nmap
+    pkgs.wireshark
 
     pkgs.xclip
     pkgs.xsel
     pkgs.azure-cli
     pkgs.rpi-imager
+
+    ## Additional tools
+    pkgs.delta
+    pkgs.notepadqq
+    pkgs.nushell
+    pkgs.atuin
+    pkgs.tldr
   ];
 
   # To make remote ssh extension work -
@@ -116,8 +117,6 @@ in {
       ms-vscode.cpptools
       golang.go
       bbenoist.nix
-      zhuangtongfa.material-theme
-      eamodio.gitlens
       editorconfig.editorconfig
       ms-vscode-remote.remote-ssh
     ];

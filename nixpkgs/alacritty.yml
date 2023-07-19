@@ -207,8 +207,6 @@ scrolling:
   history: 10000
   multiplier: 3
 
-alt_send_esc: true
-
 mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }

@@ -756,4 +756,4 @@ function LinuxFormatting()
 endfunction
 
 let g:linuxsty_patterns = [ "bpf", "kernel-upstream", "linux" ]
-set cinoptions=:0(0u0w1W1m1
+" set cinoptions=:0(0u0w1W1m1
