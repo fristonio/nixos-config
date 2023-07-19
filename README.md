@@ -9,4 +9,4 @@
 
 ### Preview
 
-![Preview Image](assets/Preview.png)
+![Preview Image](assets/preview.png)
